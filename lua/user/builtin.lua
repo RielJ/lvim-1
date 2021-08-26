@@ -25,9 +25,6 @@ M.config = function()
   if lvim.builtin.tabnine.active then
     lvim.builtin.compe.source.tabnine = { kind = " ", priority = 150, max_reslts = 6 }
   end
-  if lvim.builtin.orgmode.active then
-    lvim.builtin.compe.source.orgmode = true
-  end
   --   if lvim.builtin.lastplace.active == false then
   --     -- go to last loc when opening a buffer
   --     vim.cmd [[
@@ -50,6 +47,20 @@ M.config = function()
     lint_events = { "BufWrite", "CursorHold" },
   }
   lvim.builtin.nvimtree.auto_open = 0
+  if lvim.builtin.neorg.active then
+    lvim.builtin.compe.source.neorg = true
+    lvim.builtin.treesitter.on_config_done = function()
+      local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
+
+      parser_configs.norg = {
+        install_info = {
+          url = "https://github.com/vhyrro/tree-sitter-norg",
+          files = { "src/parser.c", "src/scanner.cc" },
+          branch = "main",
+        },
+      }
+    end
+  end
   -- lvim.builtin.nvimtree.hide_dotfiles = 0
   -- lvim.treesitter.textsubjects.enable = true
   -- lvim.treesitter.playground.enable = true

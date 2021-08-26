@@ -185,12 +185,14 @@ M.config = function()
     },
     { "mfussenegger/nvim-jdtls", ft = "java" },
     {
-      "kristijanhusak/orgmode.nvim",
-      ft = { "org" },
+      "vhyrro/neorg",
+      branch = "unstable",
+      -- ft = "norg",
       config = function()
-        require("user.orgmode").setup {}
+        require("user.neorg").config()
       end,
-      disable = not lvim.builtin.orgmode.active,
+      requires = "nvim-lua/plenary.nvim",
+      disable = not lvim.builtin.neorg.active,
     },
     {
       "tamago324/lir.nvim",

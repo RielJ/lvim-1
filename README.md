@@ -18,10 +18,8 @@ I've customized my ZSH/Tmux/Alacritty too much, so it might not work properly ðŸ
 - Using tailwinds CSS for markdown, disable it if you want
 - disable lir if you don't like it
   - `lvim.builin.lir = {active = false}`
-
-<!--
-- orgmode is using `~/shared/orgs` folder
-  -->
+- don't forget to install treesitter support for neorg if you've enabled it
+  - `TSInstall norg`
 
 ## How to use
 
@@ -88,6 +86,6 @@ lvim # run :PackerSync
 - [Tabnine](https://github.com/tzachar/compe-tabnine)
 - [Persistence](https://github.com/folke/persistence.nvim)
 - [Presence](https://github.com/andweeb/presence.nvim)
-- [Orgmode.nvim](https://github.com/kristijanhusak/orgmode.nvim)
+- [Neorg](https://github.com/vhyrro/neorg)
 - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui)
 - [lir.nvim](https://github.com/tamago324/lir.nvim)
